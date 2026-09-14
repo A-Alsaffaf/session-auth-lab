@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Entries</title>
+    <link rel="stylesheet" href="css/style.css    ">
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <h1>All Entries</h1>
+
+    <div class="entries-container">
+    <% for(oneEntry of entries) { %>
+        <div class="entry-box">
+            <p><b>Title: </b><%= oneEntry.title  %></p>
+            <p><b>Body: </b><%= oneEntry.entryBody  %></p>
+            <% if (oneEntry.owner == user._id) { %>
+                <a href="/entries?_method=PUT"><button>Edit Entry</button></a>
+                <a href="/entries?_method=DELETE"><button>Delete Entry</button></a>
+            <% } %>
+        </div>
+    <% } %>
+    </div>
+</body>
+</html>

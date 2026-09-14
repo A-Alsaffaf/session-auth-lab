@@ -16,8 +16,20 @@ router.post('/', isSignedIn, async (req, res) => {
         isPublic: req.body.isPublic,
         owner: req.session.user._id
     })
-    res.redirect('/')
+    res.redirect('/entries')
 })
 
+router.get('/', async (req,res) => {
+    const allEntries = await Entry.find({ isPublic: true })
+    console.log(allEntries);
+    res.render('./entries/all-entries.ejs', {entries: allEntries})
+})
+
+router.get('/my-entries', isSignedIn, async (req,res) => {
+    const userEntries = await Entry.find({owner: req.session.user._id})
+    console.log('All User Entries');
+    console.log(userEntries);
+    res.render('./entries/my-entries.ejs', {entries: userEntries})    
+})
 
 module.exports = router
