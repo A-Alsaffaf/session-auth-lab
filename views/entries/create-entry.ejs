@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Entry Page</title>
+</head>
+<body>
+    <h1>Create a new Entry</h1>
+
+    <form action="/entries" method="post">
+        <label for="title">Entry Title: </label>
+        <input type="text" id="title" name="title">
+
+        <label for="entryBody">Entry Body: </label>
+        <input type="text" id="entryBody" name="entryBody">
+
+        <label for="isPublic">is Entry Public: </label>
+        <input type="checkbox" id="isPublic" name="isPublic">
+
+        <button type="submit">Create Entry</button>
+    </form>
+</body>
+</html>
