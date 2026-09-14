@@ -32,4 +32,5 @@ router.get('/my-entries', isSignedIn, async (req,res) => {
     res.render('./entries/my-entries.ejs', {entries: userEntries})    
 })
 
+
 module.exports = router
